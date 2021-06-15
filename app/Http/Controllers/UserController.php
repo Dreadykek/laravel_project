@@ -14,17 +14,18 @@ class UserController extends Controller
     }
 
     public function temp($id){
-        $user = User::where('id', $id);
+        $user = User::where('id', $id)->first();
         return view('update', ['user' => $user]);
     }
 
-    public function update(Request $request){
+    public function update(Request $request, $id){
+//        dd($id);
         $validateFields = $request->validate([
             'email' => 'required|email',
-            'c_email' => 'required|email'
         ]);
-        $user = User::where('email', $validateFields['email']);
-        $user->update(array('email'=>$validateFields['c_email']));
+
+        $user = User::where('id', $id)->first();
+        $user->update(array('email'=>$validateFields['email']));
         return redirect(route('index'));
 
     }

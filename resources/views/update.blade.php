@@ -12,18 +12,11 @@
 </head>
 <body>
 <h1>Обновление данных</h1>
-<form class="col-3 offset-4 border rounded" method="POST" action="{{ route('update') }}">
+<form class="col-3 offset-4 border rounded" method="POST" action="{{ route('update', $user->id) }}">
     @csrf
     <div class="form-group">
         <label for="email" class="col-form-label-lg">Ваш email</label>
         <input class="form-control" id="email" name="email" type="text" value="" placeholder="Email">
-        @error('email')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-    </div>
-    <div class="form-group">
-        <label for="email" class="col-form-label-lg">email на который хотите поменять</label>
-        <input class="form-control" id="c_email" name="c_email" type="text" value="" placeholder="Email">
         @error('email')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror

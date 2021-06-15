@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Регистрация</h1>
-<form class="col-3 offset-4 border rounded" method="POST" action="{{ route('user.registration') }}">
+<form class="col-3 offset-4 border rounded" method="POST" action="{{ route('user.registration')  }}">
     @csrf
     <div class="form-group">
         <label for="email" class="col-form-label-lg">Ваш email</label>

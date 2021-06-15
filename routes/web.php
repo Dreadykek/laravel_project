@@ -23,7 +23,8 @@ Route::get('/{id}/delete', [\App\Http\Controllers\UserController::class, 'delete
 Route::get('/{id}/update', [\App\Http\Controllers\UserController::class, 'temp']);
 
 
-Route::post('/update', [\App\Http\Controllers\UserController::class, 'update'])->name('update');
+Route::post('/{id}/update', [\App\Http\Controllers\UserController::class, 'update'])->name('update');
+
 Route::name('user.')->group(function (){
     Route::view('/private', 'private')->middleware('auth')->name('private');
 
